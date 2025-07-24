@@ -40,10 +40,21 @@ class WebSearchTool(BaseTool):
                     "role": "user",
                     "content": str(arguments["request"])
                 }
-            ]
+            ],
+            "tools": [
+                {
+                    "type": "static_function",
+                    "static_function": {
+                        "name": "google_search",
+                        "description": "Grounding with Google Search",
+                        "configuration": {}
+                    }
+                }
+            ],
+            "temperature": 0
         }
 
-        endpoint = DIAL_ENDPOINT.format(model="gemini-2.0-flash-exp-google-search")
+        endpoint = DIAL_ENDPOINT.format(model="gemini-2.5-pro")
         response = requests.post(url=endpoint, headers=headers, json=request_data)
 
         if response.status_code == 200:

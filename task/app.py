@@ -12,8 +12,8 @@ def main():
     client = DialClient(
         endpoint=DIAL_ENDPOINT,
         deployment_name="gpt-4o",
-        # deployment_name="gemini-2.5-pro-preview-03-25",
-        # deployment_name="anthropic.claude-3-7-sonnet-20250219-v1:0",
+        # deployment_name="gemini-2.5-pro",
+        # deployment_name="claude-3-7-sonnet@20250219",
         api_key=API_KEY,
         tools=[
             CalculatorTool.TOOL_CONFIG,
